@@ -1,0 +1,49 @@
+---
+title: "DataProductFinalProject"
+author: "Richard Yeow"
+date: "April 22, 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## About the Shiny App
+
+This is the Shiny App which will show you the average temperature for a particular month.
+
+
+
+## Air Quality data
+
+```{r, echo=TRUE, comment=""}
+head(airquality)
+str(airquality)
+```
+
+## Air Quality data documentation
+**Description**
+
+Daily air quality measurements in New York, May to September 1973.
+
+**Format**
+
+A data frame with 154 observations on 6 variables.
+
+- [,1]	Ozone	 numeric	 Ozone (ppb)
+- [,2]	Solar.R	 numeric	 Solar R (lang)
+- [,3]	Wind	 numeric	 Wind (mph)
+- [,4]	Temp	 numeric	 Temperature (degrees F)
+- [,5]	Month	 numeric	 Month (1--12)
+- [,6]	Day	 numeric	 Day of month (1--31)
+
+
+## Slide with Plot
+```{r, echo=FALSE, message=FALSE}
+library(plotly)
+```
+```{r, warning=FALSE}       
+plot_ly(airquality, x = ~Month, y = ~Temp, color = ~Temp, type = "scatter", mode = "lines")
+```
+
